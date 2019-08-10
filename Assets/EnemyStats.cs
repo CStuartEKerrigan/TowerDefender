@@ -26,7 +26,7 @@ public class EnemyStats : MonoBehaviour
 
     void ProcessHit()
     {
-        sfx.PlayOneShot(sfx.clip);
+        sfx.PlayOneShot(sfx.clip); // play as one-shot to prevent death ending sfx.
         health--;
     }
 

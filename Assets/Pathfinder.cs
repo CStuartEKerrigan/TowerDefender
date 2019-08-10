@@ -28,16 +28,22 @@ public class Pathfinder : MonoBehaviour
 
     private void FormPath()
     {
-        path.Add(endPoint);
+        AddToPath(endPoint);
         Waypoint prev = endPoint.exploredFrom;
         while (prev != startPoint)
         {
             // add intermediate waypoints
-            path.Add(prev);
+            AddToPath(prev);
             prev = prev.exploredFrom;
         }
-        path.Add(startPoint);
+        AddToPath(startPoint);
         path.Reverse();
+    }
+
+    private void AddToPath(Waypoint point)
+    {
+        path.Add(point);
+        point.isPlaceable = false;
     }
 
     private void BreadthFirstSearch()
