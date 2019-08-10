@@ -16,9 +16,12 @@ public class Pathfinder : MonoBehaviour
     private List<Waypoint> path = new List<Waypoint>();
 
     public List<Waypoint> GetPath() {
-        LoadBlocks();
-        BreadthFirstSearch();
-        FormPath();
+        if (path.Count == 0)
+        {
+            LoadBlocks();
+            BreadthFirstSearch();
+            FormPath();
+        }
         return path;
     }
 

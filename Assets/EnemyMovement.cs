@@ -20,9 +20,8 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator PrintAllWaypoints(List<Waypoint> path)
     {
-        print("Starting patrol...");
         foreach (Waypoint waypoint in path){
-            transform.position = waypoint.transform.position;
+            transform.localPosition = waypoint.transform.position;
             yield return new WaitForSeconds(yieldTime);
         }
 
