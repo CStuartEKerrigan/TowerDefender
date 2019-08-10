@@ -7,6 +7,7 @@ public class EnemyStats : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] int health = 3;
     AudioSource sfx;
+    [SerializeField]GameObject deathParticles, hitParticles;
     void Start()
     {
         sfx = GetComponent<AudioSource>();
@@ -36,10 +37,17 @@ public class EnemyStats : MonoBehaviour
         {
             DestroyEnemy();
         }
+        else
+        {
+            GameObject wound = Instantiate(hitParticles, transform.position, Quaternion.identity);
+            Destroy(wound, 1f);
+        }
     }
 
     private void DestroyEnemy()
     {
+        GameObject hit = Instantiate(deathParticles,transform.position,Quaternion.identity);
+        Destroy(hit, 1f);
         Destroy(gameObject);
     }
 }

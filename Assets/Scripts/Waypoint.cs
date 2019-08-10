@@ -10,7 +10,6 @@ public class Waypoint : MonoBehaviour
     public Waypoint exploredFrom;
     public bool isPlaceable = true;
 
-
     public int getGridSize()
     {
         return gridSize;

@@ -6,8 +6,13 @@ public class BlockMouseHandler : MonoBehaviour
 {
     private Waypoint point;
     [SerializeField] Transform UITransform;
+
+    [SerializeField] GameObject towerPrefab;
+    private GameObject tower;
+
     private void Start()
     {
+        tower = null;
         point = GetComponent<Waypoint>();
     }
 
@@ -19,11 +24,15 @@ public class BlockMouseHandler : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (point.isPlaceable)
+        if (point.isPlaceable && !tower)
         {
             UITransform.transform.position = new Vector3(transform.position.x, UITransform.position.y, transform.position.z);
+            tower = Instantiate(towerPrefab, transform.position,Quaternion.identity);
         }
+        else
+        {
+            UITransform.gameObject.GetComponent<AudioSource>().Play();
 
-        print("Clicked on " + point.GetGridPos());
+        }
     }
 }

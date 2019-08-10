@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToTurn: {fileID: 685605529327116436}
   target: {fileID: 0}
-  attackDistance: 50
+  attackDistance: 25
 --- !u!82 &465615184
 AudioSource:
   m_ObjectHideFlags: 0
