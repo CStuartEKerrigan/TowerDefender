@@ -6,9 +6,9 @@ using UnityEngine;
 [SelectionBase]
 public class CubeEditor : MonoBehaviour
 {
-    [SerializeField] [Range(1f,20f)]float gridSize = 10f;
     TextMesh label;
-
+    Waypoint waypoint;
+    Vector3 gridPos;
     private void Awake()
     {
         label = GetComponentInChildren<TextMesh>();
@@ -16,13 +16,25 @@ public class CubeEditor : MonoBehaviour
 
     void Update()
     {
-        Vector3 snapPosition;
-        snapPosition.x = Mathf.RoundToInt(transform.position.x / gridSize)* gridSize;
-        snapPosition.y = Mathf.RoundToInt(transform.position.y / gridSize) * gridSize;
-        snapPosition.z = Mathf.RoundToInt(transform.position.z / gridSize) * gridSize;
-        transform.position = new Vector3(snapPosition.x,0f,snapPosition.z);
-        label.text = snapPosition.x/gridSize + "," + snapPosition.z/gridSize;
-  //      gameObject.name = label.text;
+        SnapToGrid();
+        UpdateLabel();
 
+    }
+
+    private void SnapToGrid()
+    {
+        waypoint = GetComponent<Waypoint>();
+        int gridSize = waypoint.getGridSize();
+        gridPos.x = Mathf.RoundToInt(waypoint.GetGridPos().x) * gridSize;
+//        gridPos.y = Mathf.RoundToInt(transform.position.y / gridSize) * gridSize;
+        gridPos.z = Mathf.RoundToInt(waypoint.GetGridPos().y) * gridSize;
+        transform.position = new Vector3(gridPos.x, transform.position.y, gridPos.z);
+    }
+
+    private void UpdateLabel()
+    {
+        int gridSize = waypoint.getGridSize();
+        label.text = gridPos.x / gridSize + "," + gridPos.z / gridSize;
+        gameObject.name = label.text;
     }
 }
