@@ -6,9 +6,10 @@ public class EnemyStats : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] int health = 3;
+    AudioSource sfx;
     void Start()
     {
-        
+        sfx = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class EnemyStats : MonoBehaviour
 
     void ProcessHit()
     {
+        sfx.PlayOneShot(sfx.clip);
         health--;
     }
 
@@ -38,6 +40,6 @@ public class EnemyStats : MonoBehaviour
 
     private void DestroyEnemy()
     {
-        Destroy(transform.parent.gameObject);
+        Destroy(gameObject);
     }
 }

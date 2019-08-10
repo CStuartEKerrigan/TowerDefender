@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] float timeBetweenSpawns = 2.5f;
+    [Range(0.1f,20f)][SerializeField] float timeBetweenSpawns = 2.5f;
     [SerializeField] GameObject spawnType;
     [SerializeField] Transform spawnPoint;
     private void Start()
     {
-        StartCoroutine(SpawnEnemy());    
+        StartCoroutine(SpawnEnemies());    
     }
 
-    private IEnumerator SpawnEnemy()
+    private IEnumerator SpawnEnemies()
     {
         while (true)
         {
