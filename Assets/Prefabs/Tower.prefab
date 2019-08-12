@@ -48,6 +48,7 @@ MonoBehaviour:
   objectToTurn: {fileID: 685605529327116436}
   target: {fileID: 0}
   attackDistance: 25
+  point: {fileID: 0}
 --- !u!82 &465615184
 AudioSource:
   m_ObjectHideFlags: 0
@@ -60,13 +61,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a747bd40c1047d7429166ab21035fde8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.108
+  m_Volume: 0.072
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 74
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -360,6 +361,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881459306363073749, guid: 39da3bb6043a36a47b2064d899b6dbd4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600241162381499413, guid: 39da3bb6043a36a47b2064d899b6dbd4,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600241162381499413, guid: 39da3bb6043a36a47b2064d899b6dbd4,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39da3bb6043a36a47b2064d899b6dbd4, type: 3}

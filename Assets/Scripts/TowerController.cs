@@ -10,6 +10,8 @@ public class TowerController : MonoBehaviour
     [SerializeField] float attackDistance;
     ParticleSystem.EmissionModule trigger;
     AudioSource sfx;
+    public Waypoint point;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -23,8 +25,16 @@ public class TowerController : MonoBehaviour
     {
         if (target)
         {
-            objectToTurn.LookAt(target);
-            FireAtEnemy();
+            float distance = Vector3.Distance(transform.position, target.transform.position);
+            if (distance <= attackDistance)
+            {
+                objectToTurn.LookAt(target);
+                Shoot(true);
+            }
+            else
+            {
+                target = null;
+            }
         }
         else
         {
@@ -33,18 +43,6 @@ public class TowerController : MonoBehaviour
         }
     }
 
-    private void FireAtEnemy()
-    {
-        float distance = Vector3.Distance(transform.position, target.transform.position);
-        if (distance <= attackDistance)
-        {
-            Shoot(true);
-        }
-        else
-        {
-            Shoot(false);
-        }
-    }
 
     private void Shoot(bool fire)
     {

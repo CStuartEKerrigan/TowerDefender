@@ -32,6 +32,7 @@ public class Pathfinder : MonoBehaviour
         Waypoint prev = endPoint.exploredFrom;
         while (prev != startPoint)
         {
+
             // add intermediate waypoints
             AddToPath(prev);
             prev = prev.exploredFrom;
@@ -44,6 +45,7 @@ public class Pathfinder : MonoBehaviour
     {
         path.Add(point);
         point.isPlaceable = false;
+        point.SetTopColor(Color.black);
     }
 
     private void BreadthFirstSearch()

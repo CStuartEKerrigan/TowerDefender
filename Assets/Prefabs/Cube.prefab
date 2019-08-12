@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 653983993166733002}
   - component: {fileID: 3450328092122102213}
   m_Layer: 0
-  m_Name: 0,0
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explored: 0
   exploredFrom: {fileID: 0}
+  isPlaceable: 1
 --- !u!65 &653983993166733002
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -272,7 +273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63fa91cd5f26d84d9d8a8ea9015714e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UITransform: {fileID: 0}
 --- !u!1 &9165569479255929501
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 338c163c57b12a54283b22ee3ffc9e2a, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
